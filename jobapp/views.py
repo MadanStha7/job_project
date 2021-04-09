@@ -340,3 +340,11 @@ class CompanyView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['companies'] = Employer.objects.all().order_by('-id')
         return context
+
+
+class RecommendView(TemplateView):
+    template_name='jobseekertemplates/jobseekerhome.html'
+
+    def get_context_data(self, **kwargs):
+        jobseeker_skills=JobSeeker.values("skills")
+        print(jobseeker_skills)

@@ -2,13 +2,16 @@
 {% extends 'admintemplates/adminbase.html' %}
 {% block content %}
 <div class="main">
-<h1>Employer Detail</h1>
-<table class="table">
+<h2>List of all Employers</h2>
+<table class="table mt-5">
 	<thead>
 		<tr>
 			<th>Sn</th>
-			<th>Employer Name:</th>
-			<th>Employer mobile:</th>
+			<th>Name:</th>
+			<th>Contact:</th>
+			<th>Email:</th>
+			<th>Website:</th>
+			<th>Total Jobs Posted:</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,7 +19,10 @@
 		<tr>
 			<td>{{forloop.counter}}</td>
 			<td><a href="{% url 'jobapp:adminemployerdetail' employer.id %}">{{employer.name}}</a></td>
-				<td>{{employer.mobile}}</td>
+			<td>{{employer.mobile}}</td>
+			<td>{{employer.email}}</td>
+			<td>{{employer.website}}</td>
+			<td>{{employer.job}}</td>
 			
 		</tr>
 		{% endfor %}
