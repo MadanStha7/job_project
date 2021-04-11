@@ -118,11 +118,10 @@ class EmployerJobCreateForm(forms.ModelForm):
     class Meta:
         model = Job
         exclude = ['employer']
-        fields = ['title', 'image', 'category', 'job_type', 'level', 'deadline', 'vaccncy_number',
+        fields = ['title', 'category', 'job_type', 'level', 'deadline', 'vaccncy_number',
                   'education', 'skills', 'details', 'experience', 'salary']
 
         widgets = {'title': forms.TextInput(attrs={'class': 'form-control '}),
-                   'image': forms.FileInput(attrs={'class': 'form-control'}),
                    'category': forms.Select(attrs={'class': 'form-control'}),
                    'job_type': forms.Select(attrs={'class': 'form-control'}),
                    'level': forms.Select(attrs={'class': 'form-control'}),
@@ -140,11 +139,10 @@ class EmployerJobUpdateForm(forms.ModelForm):
     class Meta:
         model = Job
         exclude = ['employer']
-        fields = ['title', 'image', 'category', 'job_type', 'level', 'deadline', 'vaccncy_number',
+        fields = ['title', 'category', 'job_type', 'level', 'deadline', 'vaccncy_number',
                   'education', 'skills', 'details', 'experience', 'salary']
 
         widgets = {'title': forms.TextInput(attrs={'class': 'form-control'}),
-                   'image': forms.FileInput(attrs={'class': 'form-control'}),
                    'category': forms.TextInput(attrs={'class': 'form-control'}),
                    'job_type': forms.Select(attrs={'class': 'form-control'}),
                    'level': forms.Select(attrs={'class': 'form-control'}),

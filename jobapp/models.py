@@ -39,7 +39,6 @@ class Employer(TimeStamp):
     address = models.CharField(max_length=100)
     image = models.ImageField(upload_to='employer')
     website = models.CharField(max_length=100)
-    compnay = models.CharField(max_length=100)
     company_image = models.ImageField(upload_to='employer/')
 
     def save(self, *args, **kwargs):
@@ -74,7 +73,6 @@ class JobSeeker(TimeStamp):
 
 class JobCategory(TimeStamp):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='jobcategory')
 
     def __str__(self):
         return self.title
@@ -87,12 +85,11 @@ LEVEL = (('junior', 'Junior'), ('mid', 'Mid'), ('seneior', 'Seneior'),)
 
 class Job(TimeStamp):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='job')
     category = models.ForeignKey(JobCategory, on_delete=models.CASCADE)
     job_type = models.CharField(max_length=100, choices=JOB_TYPE)
     employer = models.ForeignKey(Employer, on_delete=models.CASCADE)
     level = models.CharField(max_length=50, choices=LEVEL)
-    deadline = models.DateTimeField(default=datetime.now())
+    deadline = models.DateTimeField(default=datetime.now)
     vaccncy_number = models.PositiveIntegerField()
     education = models.CharField(max_length=100)
     skills = models.CharField(max_length=100)
