@@ -2,13 +2,14 @@
 {% block content %}
 <div class="container border">
 	<h3 style="margin-left: 30%;">Registration Page for Employer</h3>
+	<br>
 	<form method="post" enctype="multipart/form-data" style="margin-left: 30%;">
 		{% csrf_token %}
 		{% for field in form %}
-		<div class="form-group col-md-8">
-			<label for="{{ field.id_for_label}}" class="label">{{ field.label }}</label>
-			{{ field }}
-		</div>
+		<div class="mb-3 row">
+			<label for="{{ field.id_for_label}}" class="col-sm-3 col-form-label">{{ field.label }}</label>
+			<div class="col-sm-8">{{ field }}</div>
+		  </div>
 		{% if field.errors %}
 		<li class="alert alert-warning alert-dismissible fade show" role="alert">
 			<strong>{{field.label}}</strong>&nbsp;{{field.errors|striptags}}
